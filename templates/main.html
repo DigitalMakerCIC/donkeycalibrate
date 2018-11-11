@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+   <head>
+     <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}?v=3.4.6">
+      <title>DonkyCar Calibration</title>
+   </head>
+
+   <body>
+     <h1>DonkeyCar Calibration</h1>
+<p>Drag the sliders to find the max and min values</p>
+
+<div id="servo1" class="slider-vertical">
+ <h2>Throttle</h2>
+ <input type="range" min="200" max="600" value="400" id="range1" oninput="servo1()">
+ <h3>Throttle: <span id="range1_value"></span></h3>
+</div>
+
+<div style="clear:both;">
+
+<div id="servo2">
+ <h2>Steering</h2>
+ <input type="range" min="200" max="600" value="400" id="range2" oninput="servo2()">
+ <h3>Steering: <span id="range2_value"></span></h3>
+</div>
+
+<script>
+var slider1 = document.getElementById("range1");
+var output1 = document.getElementById("range1_value");
+output1.innerHTML = slider1.value;
+function servo1()
+{
+  output1.innerHTML = slider1.value;
+  var xhttp1 = new XMLHttpRequest();
+  xhttp1.onreadystatechange = function servo1() {
+    if (this.readyState == 4 && this.status == 200) {
+    }
+  };
+  xhttp1.open("GET", "http://raspberrypi.local:8181/set_servo1?speed=" + slider1.value, true);
+  xhttp1.send();
+}
+</script>
+
+<script>
+var slider2 = document.getElementById("range2");
+var output2 = document.getElementById("range2_value");
+output2.innerHTML = slider2.value;
+function servo2()
+{
+  output2.innerHTML = slider2.value;
+  var xhttp2 = new XMLHttpRequest();
+  xhttp2.onreadystatechange = function servo2() {
+    if (this.readyState == 4 && this.status == 200) {
+    }
+  };
+  xhttp2.open("GET", "http://raspberrypi.local:8181/set_servo2?speed=" + slider2.value, true);
+  xhttp2.send();
+}
+</script>
+   </body>
+</html>
