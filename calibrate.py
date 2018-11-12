@@ -1,5 +1,6 @@
 from flask import Flask, render_template
 from flask import request
+from calibratefunctions import *
 
 import time
 import Adafruit_PCA9685
