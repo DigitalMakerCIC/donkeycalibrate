@@ -36,4 +36,4 @@ def set_servo2():
   return "Received " + str(speed)
 
 if __name__ == "__main__":
-  app.run(host='192.168.1.231', port=8181, debug=True)
+  app.run(host='d2.local', port=8181, debug=True)

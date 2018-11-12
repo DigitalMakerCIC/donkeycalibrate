@@ -34,7 +34,7 @@ function servo1()
     if (this.readyState == 4 && this.status == 200) {
     }
   };
-  xhttp1.open("GET", "http://raspberrypi.local:8181/set_servo1?speed=" + slider1.value, true);
+  xhttp1.open("GET", "http://d2.local:8181/set_servo1?speed=" + slider1.value, true);
   xhttp1.send();
 }
 </script>
@@ -51,7 +51,7 @@ function servo2()
     if (this.readyState == 4 && this.status == 200) {
     }
   };
-  xhttp2.open("GET", "http://raspberrypi.local:8181/set_servo2?speed=" + slider2.value, true);
+  xhttp2.open("GET", "http://d2.local:8181/set_servo2?speed=" + slider2.value, true);
   xhttp2.send();
 }
 </script>
